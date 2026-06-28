@@ -1,4 +1,4 @@
-from N3_InteligenciaArtifical.motor_regras import analisar_chamado
+from motor_regras import analisar_chamado
 
 resultado = analisar_chamado(
     tipo_problema="Erro no sistema",

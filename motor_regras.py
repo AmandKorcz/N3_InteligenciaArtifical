@@ -72,3 +72,67 @@ def analisar_chamado(tipo_problema, ambiente, impacto, usuarios_afetados, existe
         "justificativa": justificativa,
         "regras_aplicadas": regras_aplicadas
     }
+
+def obter_base_conhecimento():
+    return [
+        {
+            "Código": "R01",
+            "Condição": "Ambiente = Produção",
+            "Ação": "Soma 2 pontos",
+            "Justificativa": "Problemas em produção afetam usuários reais."
+        },
+        {
+            "Código": "R02",
+            "Condição": "Impacto = Alto",
+            "Ação": "Soma 3 pontos",
+            "Justificativa": "Chamados de alto impacto comprometem processos importantes."
+        },
+        {
+            "Código": "R03",
+            "Condição": "Impacto = Médio",
+            "Ação": "Soma 2 pontos",
+            "Justificativa": "Chamados de impacto médio exigem atenção, mas não são críticos."
+        },
+        {
+            "Código": "R04",
+            "Condição": "Impacto = Baixo",
+            "Ação": "Soma 1 ponto",
+            "Justificativa": "Chamados de baixo impacto possuem menor urgência."
+        },
+        {
+            "Código": "R05",
+            "Condição": "Usuários afetados = Muitos usuários ou Todos os usuários",
+            "Ação": "Soma 3 pontos",
+            "Justificativa": "Quanto maior o número de usuários afetados, maior a prioridade."
+        },
+        {
+            "Código": "R06",
+            "Condição": "Usuários afetados = Alguns usuários",
+            "Ação": "Soma 1 ponto",
+            "Justificativa": "O problema possui alcance moderado."
+        },
+        {
+            "Código": "R07",
+            "Condição": "Existe solução de contorno = Não",
+            "Ação": "Soma 2 pontos",
+            "Justificativa": "Sem contorno, o usuário não consegue continuar o processo."
+        },
+        {
+            "Código": "R08",
+            "Condição": "Existe solução de contorno = Sim",
+            "Ação": "Registra menor urgência",
+            "Justificativa": "A existência de contorno reduz a urgência imediata."
+        },
+        {
+            "Código": "R09",
+            "Condição": "Funcionalidade crítica = Sim",
+            "Ação": "Soma 2 pontos",
+            "Justificativa": "Funcionalidades críticas exigem atendimento prioritário."
+        },
+        {
+            "Código": "R10",
+            "Condição": "Tipo = Dúvida operacional e existe contorno",
+            "Ação": "Subtrai 2 pontos",
+            "Justificativa": "Dúvidas com alternativa de execução não caracterizam incidente urgente."
+        }
+    ]
